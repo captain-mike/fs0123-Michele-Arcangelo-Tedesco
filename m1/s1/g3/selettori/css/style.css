@@ -19,7 +19,7 @@ inline style => 1000
 }
 #conflitti #rosa{/* 100 + 100 = 200*/
     background-color: pink;
-}
+} 
 
 #conflitti .verde{/* 100 + 10 = 110 */
     background-color: green;
