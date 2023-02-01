@@ -5,6 +5,11 @@ body{
 }
 */
 
+@font-face {
+    font-family: FontPersonale;
+    src: url(../fonts/Modern-Prestige-DEMO.otf) format('opentype');
+}
+
 :root{
     font-size:25px
 }
@@ -12,9 +17,14 @@ body{
 
 #t1{
     font-size: 1rem;
+    color: #fc7;
+    font-family: FontPersonale;
 }
 #t2{
     font-size: 16px;
+    color: rgba(0,0,0,0.5);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 #parent{
@@ -22,4 +32,6 @@ body{
 }
 #t3{
     font-size: 1em;
+    font-weight: bold;
+    font-style: italic;
 }
