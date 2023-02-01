@@ -1,0 +1,25 @@
+/*
+Posso modificare la dimensione assoluta di tutti i testi del body
+body{
+    font-size:20px => dimensionamento assoluto
+}
+*/
+
+:root{
+    font-size:25px
+}
+
+
+#t1{
+    font-size: 1rem;
+}
+#t2{
+    font-size: 16px;
+}
+
+#parent{
+    font-size: 50px;
+}
+#t3{
+    font-size: 1em;
+}
