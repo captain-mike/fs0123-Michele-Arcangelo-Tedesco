@@ -1,0 +1,38 @@
+img{
+    max-width: 100%;/*le immagini non andranno oltre la larghezza del contenitore*/
+}
+
+/*css background*/
+.quadrato{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+}
+
+#q1{
+    background-image: url(../img/download.png);
+    background-size: 100px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#q2{
+    background-image: url(../img/download.png), url(../img/download.png);
+    background-size: 100px auto;
+    background-repeat: no-repeat, repeat-y;
+    background-position: right top, left bottom;
+}
+
+#q3{
+    background-image: url(https://picsum.photos/700/300/?blur=5);
+    background-size: cover;
+    width: 100%;
+}
+
+#q4{
+    background-image: url(https://picsum.photos/700/300/?blur=5);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
