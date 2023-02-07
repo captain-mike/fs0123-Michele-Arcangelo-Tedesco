@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //apro un blocco
+        {
+            var a = 0;//non è soggetta a blockscope
+            console.log(a)
+        }
+        console.log(a)
+
+
+        {
+            let b = 1;
+            console.log(b)
+        }
+        //console.log(b)Uncaught ReferenceError: b is not defined
+
+        {
+            let b = 1;
+            console.log(b)
+        }
+
+        var c = 2;
+        {
+            let c = 3;
+            console.log(c)//mi riferisco alla let della riga 34
+        }
+        console.log(c)//mi riferisco alla variabile della riga 32
+
+
+        //esempio
+
+        let condizione = true;
+        let numero;//inizializzo fuori dal blocco
+        if(condizione){
+            numero = 90;//valorizzo in un blocco
+        }else{
+            numero = 50;//valorizzo in un blocco
+        }
+
+        console.log(numero)//la variabile è disponibile
+
+    </script>
+</body>
+</html>
