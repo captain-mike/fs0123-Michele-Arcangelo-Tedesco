@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let pizze = ['Margherita','Diavola','Marinara', 'Mimosa'];
+
+
+        console.log(pizze);
+        //si usa quando dobbiamo effettuare una modifica ad ogni elemento dell'array
+        let pizzeDiv = pizze.map(function(valore){
+            return `<div>${valore}</div>`
+        })
+        console.log(pizzeDiv);
+    
+        //serve a ciclare gli array
+        pizzeDiv.forEach(function(valore){
+            document.write(valore)
+        })
+
+
+        /*MAP*/
+
+        let numeri = [1,2,3,4,5,6];
+        let numeriX2 =  numeri.map(function(n){ 
+            return n * 2;
+        })
+        console.log(numeriX2);
+
+        /*
+        ecco come si faceva quando non avevamo map
+        
+        let numeriMoltiplicati = [];
+        
+        numeri.forEach(function(n){
+            numeriMoltiplicati.push(n * 2)  
+        })
+        */
+
+        /*filter*/
+        //restituisce un array con tutti i risultati trovati
+        let numeriFiltrati = numeri.filter(function(n){
+            return n > 3
+        })
+        console.log(numeriFiltrati)
+        
+        /*find*/
+        //restituisce il primo valore trovato [NON UN ARRAY]
+        let numeroTrovato = numeri.find(function(n){
+            return n > 3
+        })
+        console.log(numeroTrovato)
+
+        /*reduce*/
+        numeri = [1,2,3,4,5,6];
+        let somma = numeri.reduce(function(p,c){
+            return p + c;
+        })
+        console.log(somma)
+        
+        numeri = [1,20,300,4,5,6];
+        let numeroGrande = numeri.reduce(function(p,c){
+            if(p > c){
+                return p;
+            }else{
+                return c;
+            }
+        })
+        console.log(numeroGrande)
+
+        /*Eliminare da un array*/
+
+        //andando per esclusione
+        pizze = ['Margherita','Diavola','Marinara', 'Mimosa'];
+        pizze = pizze.filter(function(p){
+            return p != 'Mimosa';
+        })
+        console.log(pizze)
+
+        //eliminazione diretta
+        pizze = ['Margherita','Diavola','Marinara', 'Mimosa'];
+        let indice = pizze.indexOf('Marinara');//trova la marinara e mi dice il suo indice(posizione)
+
+        pizze.splice(indice,1);//elimino la pizza Marinara
+        console.log(pizze)
+
+
+        //eliminazione da array di oggetti
+        pizze = [
+            {
+                gusto : 'Margherita',
+                prezzo : 5,
+                disponibile : true
+            },
+            {
+                gusto : 'Diavola',
+                prezzo : 1,
+                disponibile : true
+            },
+            {
+                gusto : 'Hawayana',
+                prezzo : 500,
+                disponibile : false
+            }
+        ];
+
+        let index = pizze.findIndex(function(p){
+            return !p.disponibile
+        })
+
+        console.log(index)
+
+        pizze.splice(index,1);//elimino la pizza
+        console.log(pizze)
+
+
+
+
+    </script>
+</body>
+</html>
