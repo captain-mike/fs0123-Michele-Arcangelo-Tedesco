@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="display">
+
+    <button data-simbolo="1" onclick="aggiungiSimbolo(this)">1</button>
+    <button data-simbolo="2" onclick="aggiungiSimbolo(this)">2</button>
+    <button data-simbolo="3" onclick="aggiungiSimbolo(this)">3</button>
+    <button data-simbolo="4" onclick="aggiungiSimbolo(this)">4</button>
+    <button data-simbolo="5" onclick="aggiungiSimbolo(this)">5</button>
+    <button data-simbolo="6" onclick="aggiungiSimbolo(this)">6</button>
+    <button data-simbolo="7" onclick="aggiungiSimbolo(this)">7</button>
+    <button data-simbolo="8" onclick="aggiungiSimbolo(this)">8</button>
+    <button data-simbolo="9" onclick="aggiungiSimbolo(this)">9</button>
+    <button data-simbolo="0" onclick="aggiungiSimbolo(this)">0</button>
+    <button data-simbolo="+" onclick="aggiungiSimbolo(this)">+</button>
+    <button data-simbolo="*" onclick="aggiungiSimbolo(this)">x</button>
+    <button onclick="totale()">=</button>
+
+    <script>
+
+        function aggiungiSimbolo(elemento){
+            //let simbolo = elemento.textContent;
+            let simbolo = elemento.getAttribute('data-simbolo');
+
+            let display = document.querySelector('#display');
+            display.value += simbolo;
+        }
+
+        function totale(){
+            let display = document.querySelector('#display');
+
+            display.value = eval(display.value);
+        }
+
+
+    </script>
+</body>
+</html>
