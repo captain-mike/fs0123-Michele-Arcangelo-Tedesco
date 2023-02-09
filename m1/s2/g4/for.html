@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //con variabile incrementata
+        for(let i = 0; i < 10; i++){
+            document.write(i);
+        }
+
+        document.write('<hr>');
+        
+        //con variabile decrementata
+        for(let i = 9; i >= 0; i--){
+            document.write(`<div>${i}</div>`)
+        }
+        
+        document.write('<hr>');
+
+        let pizze = ['Margherita','Diavola','Marinara', 'Mimosa'];
+        for(let i = 0; i < pizze.length; i++){
+
+            document.write(`<div>${pizze[i]}</div>`);
+
+        }
+
+        document.write('<hr>');
+
+        //for of => per ciclare array
+        pizze = ['Margherita','Diavola','Marinara', 'Mimosa'];
+        for(let pizza of pizze){
+            document.write(`<div>${pizza}</div>`);
+        }
+
+        document.write('<hr>');
+
+        for(let lettera of 'Testo'){
+            document.write(lettera + '<br>');
+        }
+
+        document.write('<hr>');
+
+        //for in => per ciclare oggetti
+        let margherita = {
+            gusto : 'Margherita',
+            prezzo : 5,
+            metodo : function(){}
+        }
+
+        let campiVisualizzati = ['gusto','prezzo']
+
+        for(let prop in margherita){
+
+            if(campiVisualizzati.includes(prop)){
+                document.write(`<div>${prop} : ${margherita[prop]}</div>`)
+            }
+            //margherita[prop] è il valore
+            //prop è la chiave
+        }
+
+
+
+    </script>
+</body>
+</html>
