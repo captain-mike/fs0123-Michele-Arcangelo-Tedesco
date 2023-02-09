@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let i = 0;
+        while(i < 100){//finchè i è inferiore a 100
+            document.write(i);//scrivi a schermo il valore di i 
+            i++;//incrementa i di 1
+        }//torna arra riga 14
+
+        document.write('<br>Il ciclo ha finito le operazioni<br>')
+
+        //esempi con break e continue
+
+        i = 0;//resetto la i a zero
+        while(i <= 5){
+            
+            if(i == 2){
+                i++;
+                continue;//salta all'iterazione successiva
+            }
+            
+            document.write(i);
+            i++;
+        }
+        
+        document.write('<br>');
+
+        i = 0;//resetto la i a zero
+        while(i <= 5){
+            
+            if(i == 2){
+                i++;
+                break;//termina il ciclo
+            }
+            
+            document.write(i);
+            i++;
+        }
+
+        
+
+    </script>
+</body>
+</html>
