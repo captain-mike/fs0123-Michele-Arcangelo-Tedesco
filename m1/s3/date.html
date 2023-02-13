@@ -31,8 +31,11 @@
         //il mese -1 è dicembre dell'anno precedente
 
         console.log(adesso);
+        
+        const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+        console.log(adesso.toLocaleDateString('it-IT', options));
 
-        console.log(adesso.toLocaleDateString());
+        //consiglio la libreria moment.js per app che fanno ampio utilizzo di date e orari
 
         
 
