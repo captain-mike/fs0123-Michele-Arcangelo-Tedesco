@@ -8,6 +8,8 @@
 </head>
 <body>
     
+    <div id="ora"></div>
+
     <script>
 
         let adesso = new Date();//scrivo nella variabile un oggetto date, contenente le info relative a data ed ora attuali
@@ -36,6 +38,34 @@
         console.log(adesso.toLocaleDateString('it-IT', options));
 
         //consiglio la libreria moment.js per app che fanno ampio utilizzo di date e orari
+
+
+        //eseguo una funzione 1 volta dopo 3 secondi
+        setTimeout(function(){
+            console.log(new Date())
+        },3000);
+
+        //eseguo una funzione all'infinito ogni secondo
+        setInterval(function(){
+            
+            let tag = document.querySelector('#ora');//HTMLelement
+            let orario = new Date().toLocaleTimeString();
+           
+            tag.innerText = orario;
+
+        },1000);
+
+        //coutdown
+
+        let count = 10;
+
+        let timer = setInterval(function(){
+                        console.log(count);//mostro il valore aggiornato
+                        if(count == 0){
+                            clearInterval(timer)//fermo il timer
+                        }
+                        count--;//riduco count di 1
+                    },1000)
 
         
 
