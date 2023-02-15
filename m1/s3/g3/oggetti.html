@@ -21,6 +21,7 @@
                 prezzo: 5,
                 disponibile: true,
                 mostraPrezzo: function(){
+                    //se uso una funzione freccia this si aggancia all'oggetto window
                     console.log(this)//tutto l'oggetto margherita
                     console.log(`Il prezzo della pizza margherita è di ${this.prezzo}€`);
                 }
@@ -30,8 +31,9 @@
                 gusto: 'Diavola',
                 prezzo: 1,
                 disponibile: true,
-                mostraPrezzo: () => {
-                    console.log('Il prezzo della pizza diavola è di 1€');
+                mostraPrezzo: function(){
+                    console.log(this)//tutto l'oggetto diavola
+                    console.log(`Il prezzo della pizza diavola è di ${this.prezzo}€`);
                 }
             }
             
@@ -54,11 +56,27 @@
 
             /**
              * costruttore di oggetti
+             * 
             */
 
-            function Pizza(){
-                
+            console.log('=========================================================')
+            console.log('=========================================================')
+            console.log('=========================================================')
+
+            function Pizza(_gusto, _prezzo){
+                this.gusto = _gusto;
+                this.prezzo = _prezzo;
+                this.disponibile = true;
+                this.mostraPrezzo = function(){
+                    console.log(this)//tutto l'oggetto margherita
+                    console.log(`Il prezzo della pizza ${this.gusto} è di ${this.prezzo}€`);
+                }
             }
+
+            let margherita = new Pizza('Margherita', 5);
+            let diavola = new Pizza('Diavola', 1);
+            console.log(margherita)
+            console.log(diavola)
 
         }
 
