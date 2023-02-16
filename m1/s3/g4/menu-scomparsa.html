@@ -39,18 +39,18 @@
 
         toggle.addEventListener('click',function(){
 
-            let offCanvas = document.querySelector('#off-canvas')
-            offCanvas.classList.toggle('open')
+            let offCanvas = document.querySelector('#off-canvas');
+            offCanvas.classList.toggle('open');
 
             let testo;
             if( !offCanvas.classList.contains('open') ){
-                testo = this.getAttribute('data-it-open')
+                testo = this.getAttribute('data-it-open');
             }else{
-                testo = this.getAttribute('data-it-close')
+                testo = this.getAttribute('data-it-close');
             }
 
-            console.log( testo)
-            this.textContent = testo
+            console.log( testo );
+            this.textContent = testo;
 
         })
 
