@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="testo">
+    
+    <script>
+
+        let testo = document.getElementById("testo");
+
+        testo.addEventListener('keydown', e => {
+
+            console.log(e)
+            console.log(e.target)
+
+            console.log(testo.value)
+
+
+            //mappatura
+            if(e.key == 'w'){
+                console.log('avanti')
+                //muovi avanti
+            }
+            if(e.key == 's'){
+                console.log('indietro')
+                //muovi indietro
+            }
+            if(e.key == 'a'){
+                console.log('sinistra')
+                //muovi a sinistra
+            }
+            if(e.key == 'd'){
+                console.log('destra')
+                //muovi destra
+            }
+
+        })
+
+    </script>
+</body>
+</html>

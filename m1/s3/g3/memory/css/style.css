@@ -17,4 +17,9 @@
 .icona{
     font-size: 4.5rem;
     text-align: center;
+    opacity: 0;
+}
+
+.icona.selected{
+    opacity: 1;
 }
