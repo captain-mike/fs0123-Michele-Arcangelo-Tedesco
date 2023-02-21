@@ -5,11 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .dnone{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
     <div id="target"></div>
     
+    <div id="template" class="dnone">
+
+        <div class="slide">
+            <p class="title"></p>
+            
+            <div class="answers">
+                <button class="option"></button>
+            </div>
+        </div>
+
+    </div>
 
     <button class="start">Inizia</button>
     <button class="next">Prossima Domanda</button>
@@ -57,46 +73,32 @@
 
         function newAnswer(answerObj){    
 
+            let target = document.querySelector('#target');
+            let html = document.querySelector('#template .slide').cloneNode(true)
 
-            fetch('template.html')
-            .then(res => res.text())
-            .then(res => {
 
-                    let target = document.querySelector('#target');
+            target.innerHTML = '';
+            console.log(html)
 
-                    //questo div serve a convertire la stringa html in oggetto html
-                    let divOspite = document.createElement('div');//creo un elemento ospite
-                    divOspite.innerHTML = res
+            //seleziono gli elementi
+            let titleDOM = html.querySelector('.title')
+            let answersDOM = html.querySelector('.answers')
+            
+            
+            //inserisco contenuto
+            titleDOM.textContent = answerObj.title
 
-                    let html = divOspite.querySelector('.slide')//ricevo oggetto html
+            for(let risp of answerObj.risposte){
+                let optionClone = html.querySelector('.answers .option').cloneNode()
+                optionClone.textContent = risp;
 
-                    console.log(divOspite)
+                answersDOM.append(optionClone);
 
-                    target.innerHTML = '';
-                    console.log(html)
+            }
 
-                    //seleziono gli elementi
-                    let titleDOM = html.querySelector('.title')
-                    let answersDOM = html.querySelector('.answers')
-                    
-                    
-                    //inserisco contenuto
-                    titleDOM.textContent = answerObj.title
+            html.querySelector('.answers .option').remove()//rimuovo la prima option
 
-                    for(let risp of answerObj.risposte){
-
-                        let optionClone = html.querySelector('.answers .option').cloneNode()
-                        optionClone.textContent = risp;
-
-                        answersDOM.append(optionClone);
-
-                    }
-
-                    html.querySelector('.answers .option').remove()//rimuovo la prima option
-
-                    target.append(html)
-
-            })
+            target.append(html)
 
         }
 
