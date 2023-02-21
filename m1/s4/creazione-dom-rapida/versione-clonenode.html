@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="target"></div>
+    
+
+    <button class="start">Inizia</button>
+    <button class="next">Prossima Domanda</button>
+
+    <script>
+        let domanda = {
+                        title : 'Quanti anni hai?',
+                        risposte : [30,50,40,180]
+                    }
+
+        let start = document.querySelector('.start');
+        start.addEventListener('click',()=>{
+            newAnswer(domanda);
+        })
+
+
+        //multiple domande
+        let domande = [
+                    {
+                        title : 'Quanti anni hai?',
+                        risposte : [30,50,40,180]
+                    },
+                    {
+                        title : 'Che ore sono?',
+                        risposte : ['10:20','23:59','20:00']
+                    },
+                    {
+                        title : 'Che tempo fa oggi?',
+                        risposte : ['sole','tempesta','neve','nebbia']
+                    }
+        ]
+
+        let indice = 0;
+
+        let next = document.querySelector('.next');
+        next.addEventListener('click',function(){
+
+            newAnswer(domande[indice]);
+            indice++;
+
+            console.log(indice)
+        })
+
+
+
+        function newAnswer(answerObj){    
+
+
+            fetch('template.html')
+            .then(res => res.text())
+            .then(res => {
+
+                    let target = document.querySelector('#target');
+
+                    //questo div serve a convertire la stringa html in oggetto html
+                    let divOspite = document.createElement('div');//creo un elemento ospite
+                    divOspite.innerHTML = res
+
+                    let html = divOspite.querySelector('.slide')//ricevo oggetto html
+
+                    console.log(divOspite)
+
+                    target.innerHTML = '';
+                    console.log(html)
+
+                    //seleziono gli elementi
+                    let titleDOM = html.querySelector('.title')
+                    let answersDOM = html.querySelector('.answers')
+                    
+                    
+                    //inserisco contenuto
+                    titleDOM.textContent = answerObj.title
+
+                    for(let risp of answerObj.risposte){
+
+                        let optionClone = html.querySelector('.answers .option').cloneNode()
+                        optionClone.textContent = risp;
+
+                        answersDOM.append(optionClone);
+
+                    }
+
+                    html.querySelector('.answers .option').remove()//rimuovo la prima option
+
+                    target.append(html)
+
+            })
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>
